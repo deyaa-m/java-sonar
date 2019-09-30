@@ -1,0 +1,15 @@
+this is a follow up feature for the java-jenkins project, it adds sonarqube as a code quality control 
+
+## add the sonar service to the java-jenkins docker-compose file, then : 
+
+1. in jenkins > manage plugins > available > sonarqube scanner
+2. jenkins tab > system configurations > sonarqube servers : 
+			name : sonar , url : ip:port , then save 
+3. jenkins tab > global tool configuration > sonarqube scanner : 
+			name : sonar , check install automatically  , then save 
+4. go to your project > configure > post steps > add post-build step > execute sonarqube scanner 
+			Analysis properties : 	sonar.host.url=ip:port
+						sonar.projectKey=yourproject
+                                                sonar.sources=src
+                                                sonar.language=java
+		then save the project and build
